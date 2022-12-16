@@ -186,6 +186,6 @@ endif(COVERAGE)
 
 string(TIMESTAMP TACO_BUILD_DATE "%Y-%m-%d")
 configure_file("${CMAKE_CURRENT_SOURCE_DIR}/taco/version.h.in" "${CMAKE_CURRENT_BINARY_DIR}/include/taco/version.h" @ONLY)
-message(STATUS "Shifting ${CMAKE_CURRENT_SOURCE_DIR}/taco/version.h.in to ${CMAKE_CURRENT_BINARY_DIR}/include/taco/version.h")
+message("Shifting ${CMAKE_CURRENT_SOURCE_DIR}/taco/version.h.in to ${CMAKE_CURRENT_BINARY_DIR}/include/taco/version.h")
 install(FILES "${CMAKE_CURRENT_BINARY_DIR}/include/taco/version.h" DESTINATION "include/taco")
-message(STATUS "Shifting ${CMAKE_CURRENT_BINARY_DIR}/include/taco/version.h" to include/taco")
+message("Shifting ${CMAKE_CURRENT_BINARY_DIR}/include/taco/version.h to include/taco")
