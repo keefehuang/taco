@@ -101,13 +101,7 @@ set(C_CXX_FLAGS "${C_CXX_FLAGS}")
 set(CMAKE_C_FLAGS "${C_CXX_FLAGS}")
 set(CMAKE_CXX_FLAGS "${C_CXX_FLAGS} -std=c++14")
 
-if(NOT ${CMAKE_INSTALL_PREFIX})
-        set(TACO_PROJECT_DIR ${CMAKE_CURRENT_LIST_DIR})
-else()
-        set(TACO_PROJECT_DIR ${CMAKE_INSTALL_PREFIX})
-endif()
-
-# set(TACO_PROJECT_DIR ${CMAKE_CURRENT_LIST_DIR})
+set(TACO_PROJECT_DIR ${CMAKE_CURRENT_LIST_DIR})
 
 set(TACO_SRC_DIR     ${TACO_PROJECT_DIR}/src)
 set(TACO_TEST_DIR    ${TACO_PROJECT_DIR}/test)
@@ -191,5 +185,5 @@ if(COVERAGE)
 endif(COVERAGE)
 
 string(TIMESTAMP TACO_BUILD_DATE "%Y-%m-%d")
-configure_file("${TACO_INCLUDE_DIR}/taco/version.h" "${TACO_PROJECT_DIR}/build/include/taco/version.h" @ONLY)
-install(FILES "${TACO_INCLUDE_DIR}/taco/version.h" DESTINATION "include/taco")
+configure_file("${TACO_INCLUDE_DIR}/taco/version.h.in" "${CMAKE_INSTALL_PREFIX}/build/include/taco/version.h" @ONLY)
+install(FILES "${CMAKE_INSTALL_PREFIX}/taco/version.h" DESTINATION "include/taco")
