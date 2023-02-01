@@ -67,6 +67,7 @@ taco_tensor_t* init_taco_tensor_t(int32_t order, int32_t csize,
 }
 
 void deinit_taco_tensor_t(taco_tensor_t* t) {
+  free_mem(t->fill_value);
   for (int i = 0; i < t->order; i++) {
     free_mem(t->indices[i]);
   }
